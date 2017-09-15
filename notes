@@ -1,13 +1,53 @@
-= Challenge
+= Challenge - Why?
 Drivers are not achieving maximum efficiency due to lack of knowledge about their optimal speed.
+
+= Solution - How?
 With proper communication between driver and VRIs, the flow of traffic would be improved, especially in VRI-heavy areas.
-
-= Solution
+-
 Make a smart connected communication device to clearly communicate to other drivers what the optimal flow is.
-
+-
 The device itself is rather simple: a light we call the 'banner'.
 This banner communicates to drivers behind it with a green color that it is travelling optimally.
 Therefore, simply staying behind this car optimizes the flow.
+-
+With a banner: simply some lights, wired to emit a bright green when that car is near the front of the 'green wave'.
+-
+This communicates to the driver behind it to tail that vehicle, closing gaps and naturally forming neat 'pelotons' of cars.
+-
+The light can be either bought by, or handed out to, drivers to be put in the back of their cars, visible for drivers behind them.
+-
+To be effective, only a small percentage of the people will need to participate.
+-
+The one simple rule to explain to people is to try to get as close to the head of the green wave as possible (if there is space of course).
+
+= Implementation - What?
+-
+There are several different components required for the solution.
+-
+'Time to green' for the next light must be known.
+The speed, direction and intended route of the car with the banner.
+-
+
+= Closing out
+Here's our catchy slogan: Wees geen oen, blijf achter groen!
+
+= Bonus
+For drivers who don't want the banner in their car: the 'green wave' data will be made freely available so that google, apple, tomtom, webmobile, etc. can use it in their routing applications.
+It will be available in 2 formats: either as time-to-green times of traffic signals and nothing more,
+as map-overlayable data, with the speed required along the path, for easy integration for anyone.
+-
+Drivers using those apps can be psychologically rewarded by informing them of their time and fuel/money saved.
+-
+Autonomous cars can use the data to prefer riding (at the start of) green waves, automatically causing drivers following them to also be part of those.
+-
+
+= Potential issues
+When lanes split up right in front of signals, the green wave can only be turned on when both are green, despite drivers sharing a lane beforehand.
+Also, in these cases, care must be taken not to drive slower than allowed.
+
+
+
+
 
 = Actors
 == SignalDB
