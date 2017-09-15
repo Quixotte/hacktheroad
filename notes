@@ -1,0 +1,87 @@
+= Challenge
+Drivers are not achieving maximum efficiency due to lack of knowledge about their optimal speed.
+With proper communication between driver and VRIs, the flow of traffic would be improved, especially in VRI-heavy areas.
+
+= Solution
+Make a smart connected communication device to clearly communicate to other drivers what the optimal flow is.
+
+The device itself is rather simple: a light we call the 'banner'.
+This banner communicates to drivers behind it with a green color that it is travelling optimally.
+Therefore, simply staying behind this car optimizes the flow.
+
+= Actors
+== SignalDB
+System that records the state of the traffic lights/signals and can deduce patterns.
+
+=== observed( traffic light selector/ID , state = red/orange/green/off/unknown )
+Inform the system of the current observed state of a traffic light. Can be sent by the iVRI, smart-cameras, etc.
+The selector is explicitly left vague, but can include actual IDs in case they are known, or for example the location, lane, and direction in case the exact IDs are not known.
+
+=== request(route)
+Returns the status of traffic lights along a route, which includes their (deduced) schedule.
+
+== TrafficDB
+=== observed_traffic(car properties, observed traffic)
+=== request_traffic(area) -> traffic description
+Answers the given known traffic in an area.
+
+
+== Smart car
+Smart car equipped with an amount of sensors to provide additional info on the current status of the road.
+
+=== Interactions
+==== SignalDB::observe
+If the smart car can observe signals, passes this information to the SignalDB
+
+==== TrafficDB::observe
+If the smart car can observe traffic, passes this information to the TrafficDB
+
+==== Director::optimum_speed
+if auto-drive: use this speed instead of the trying the maximum
+if not auto-drive: display the optimal speed (in addition to the maximum) to the driver.
+
+=== car_properties() -> car_properties
+Properties include
+- speed
+- position
+- direction
+- intended path/route
+- historic path/route
+
+
+== CostDB
+Given a route (segments traveled at a time with a certain speed) returns the cost of both.
+Intended use is to calculate the savings by taking the optimal route.
+
+=== observe(car_properties, route, resources used)
+Records the resources used to travel a certain route with the given car properties
+
+=== request(car_properties, route) -> resources used
+
+
+== Director
+Given other system, optimizes flow of traffic.
+
+=== optimum_speed(car_properties, ?intended_route) -> (speed, reason)
+Returns the optimal speed on all segments of the route.
+==== Examples
+	"positie: (52, 7) velocity: (20, 20, 20) -> (42km/u, "green wave")
+	"positie: (52, 8) velocity: (20, 20, 20) -> (80km/u, "filepreventie")
+	"positie: ...                            -> (route, "most efficient")
+==== Uses
+SignalDB::request
+TrafficDB::request
+CostDB::request
+
+=== banner_status(car_properties, ?intended_route) -> (status, reason)
+Given the car's properties and the intended route, will return the status the banner should have.
+==== Examples
+	"... -> (green light, "green wave")
+	"... -> (no light, "have to stop about")
+
+Visualisaties
+
+SUMO
+VISSIM
+
+
