@@ -1,14 +1,14 @@
 = Challenge - Why?
+-
 Drivers are not achieving maximum efficiency due to lack of knowledge about their optimal speed.
+-
+Cars accelerate/deaccelerate one after another, causing the //harmonica// effect we all know.
+-
+Drivers are not aware of the right speed to hit green lights.
 
 = Solution - How?
-With proper communication between driver and VRIs, the flow of traffic would be improved, especially in VRI-heavy areas.
 -
-Make a smart connected communication device to clearly communicate to other drivers what the optimal flow is.
--
-The device itself is rather simple: a light we call the 'banner'.
-This banner communicates to drivers behind it with a green color that it is travelling optimally.
-Therefore, simply staying behind this car optimizes the flow.
+Lead the driver with (an additional) tail light of other drivers.
 -
 With a banner: simply some lights, wired to emit a bright green when that car is near the front of the 'green wave'.
 -
@@ -19,6 +19,16 @@ The light can be either bought by, or handed out to, drivers to be put in the ba
 To be effective, only a small percentage of the people will need to participate.
 -
 The one simple rule to explain to people is to try to get as close to the head of the green wave as possible (if there is space of course).
+-
+Coax drivers into riding in neat pelotons that are overlapping with the green wave.
+-
+With proper communication between driver and iVRIs, the flow of traffic would be improved, especially in iVRI-heavy areas.
+-
+Make a smart connected communication device to clearly communicate to other drivers what the optimal flow is.
+-
+The device itself is rather simple: a light we call the 'banner'.
+This banner communicates to drivers behind it with a green color that it is travelling optimally.
+Therefore, simply staying behind this car optimizes the flow.
 
 = Implementation - What?
 -
@@ -38,8 +48,12 @@ as map-overlayable data, with the speed required along the path, for easy integr
 -
 Drivers using those apps can be psychologically rewarded by informing them of their time and fuel/money saved.
 -
-Autonomous cars can use the data to prefer riding (at the start of) green waves, automatically causing drivers following them to also be part of those.
+Autonomous cars can use the data to prefer riding (at the start of) green waves,
+automatically causing drivers following them to also be part of those.
 -
+There is a green wave even when drivers have been waiting in traffic.
+When the line is long enough, some car will not pass the green light.
+The lights of cars can communicate this to that (poor) driver.
 
 = Potential issues
 When lanes split up right in front of signals, the green wave can only be turned on when both are green, despite drivers sharing a lane beforehand.
